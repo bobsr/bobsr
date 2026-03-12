@@ -1,0 +1,182 @@
+:root {
+  --bg: #f5f7ff;
+  --panel: #ffffff;
+  --text: #13213b;
+  --muted: #5e6a85;
+  --accent: #3467eb;
+  --underweight: #5ca2ff;
+  --normal: #39b979;
+  --overweight: #f2b640;
+  --obesity: #f05b5b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(160deg, #eef3ff, #f8f9ff);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.app {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(18, 35, 66, 0.1);
+}
+
+h1, h2 {
+  margin: 0 0 0.4rem;
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+input,
+select {
+  border: 1px solid #d8def0;
+  padding: 0.7rem 0.75rem;
+}
+
+button {
+  margin-top: 0.6rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.8rem 0.9rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-values {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: #edf2ff;
+  font-weight: 600;
+}
+
+.bmi-number {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.bmi-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.gauge-wrap {
+  background: #f6f8ff;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.gauge-track {
+  position: relative;
+  height: 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 17.5fr 6.5fr 5fr 11fr;
+}
+
+.zone.underweight { background: var(--underweight); }
+.zone.normal { background: var(--normal); }
+.zone.overweight { background: var(--overweight); }
+.zone.obesity { background: var(--obesity); }
+
+.needle {
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 30px;
+  border-radius: 4px;
+  background: #111;
+  transform: translateX(-50%);
+  left: 0%;
+  box-shadow: 0 0 0 2px #fff;
+  transition: left 250ms ease;
+}
+
+.gauge-scale {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  color: #4f5972;
+}
+
+.result-note {
+  margin: 0;
+  line-height: 1.4;
+  color: #3f4f71;
+}
+
+.result-panel.state-underweight {
+  border-left: 8px solid var(--underweight);
+}
+
+.result-panel.state-normal {
+  border-left: 8px solid var(--normal);
+}
+
+.result-panel.state-overweight {
+  border-left: 8px solid var(--overweight);
+}
+
+.result-panel.state-obesity {
+  border-left: 8px solid var(--obesity);
+}
+
+@media (max-width: 820px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
