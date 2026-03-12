@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="card">
+        <h1>BMI Calculator</h1>
+        <p class="subtitle">Calculate your Body Mass Index with gender-specific healthy ranges.</p>
+
+        <form id="bmi-form" class="form" novalidate>
+          <fieldset class="gender-group">
+            <legend>Gender</legend>
+            <label>
+              <input type="radio" name="gender" value="female" checked />
+              Female
+            </label>
+            <label>
+              <input type="radio" name="gender" value="male" />
+              Male
+            </label>
+          </fieldset>
+
+          <label for="height">Height (cm)</label>
+          <input id="height" name="height" type="number" min="80" max="250" step="0.1" placeholder="e.g. 172" required />
+
+          <label for="weight">Weight (kg)</label>
+          <input id="weight" name="weight" type="number" min="20" max="350" step="0.1" placeholder="e.g. 68.5" required />
+
+          <button type="submit">Calculate BMI</button>
+          <p id="error" class="error" aria-live="polite"></p>
+        </form>
+
+        <section class="result" aria-live="polite">
+          <div class="reading">
+            <p class="label">Your BMI</p>
+            <p id="bmi-value" class="bmi-value">--</p>
+            <p id="bmi-category" class="category">Enter values to begin</p>
+          </div>
+
+          <div class="meter-wrap" aria-label="BMI meter">
+            <div class="meter-scale">
+              <span>16</span>
+              <span>18.5</span>
+              <span>25</span>
+              <span>30</span>
+              <span>40</span>
+            </div>
+            <div class="meter">
+              <div class="segment underweight"></div>
+              <div class="segment healthy"></div>
+              <div class="segment overweight"></div>
+              <div class="segment obesity"></div>
+              <div id="meter-indicator" class="indicator"></div>
+            </div>
+            <p id="healthy-range" class="healthy-range">Healthy range (female): 18.0–24.0</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
